@@ -1,26 +1,27 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { contact, profile } from '../data/portfolioData'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { contact, profile } from "../data/portfolioData";
+import { socialIcons } from "../utils";
 
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   // For a working form, integrate a backend like EmailJS / Formspree.
   // This uses a mailto fallback so it works without a server.
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio message from ${form.name}`)
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
     const body = encodeURIComponent(
-      `${form.message}\n\n—\n${form.name}\n${form.email}`
-    )
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
-    setSubmitted(true)
-  }
+      `${form.message}\n\n—\n${form.name}\n${form.email}`,
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
 
   return (
     <section id="contact" className="section contact-section">
@@ -35,9 +36,10 @@ function Contact() {
           <p className="contact-subtitle">{contact.description}</p>
 
           {submitted ? (
-            <div className="contact-subtitle" style={{ marginTop: '2rem' }}>
-              ✅ Thanks! Your email client should open — feel free to send it through, or reach
-              out directly at <strong>{profile.email}</strong>.
+            <div className="contact-subtitle" style={{ marginTop: "2rem" }}>
+              ✅ Thanks! Your email client should open — feel free to send it
+              through, or reach out directly at <strong>{profile.email}</strong>
+              .
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -86,14 +88,14 @@ function Contact() {
                 className="social-link"
                 aria-label={social.platform}
               >
-                {social.platform.charAt(0).toUpperCase()}
+                {socialIcons[social.icon]}
               </a>
             ))}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
