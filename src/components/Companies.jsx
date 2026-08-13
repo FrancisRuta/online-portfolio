@@ -1,96 +1,89 @@
-import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { companies } from '../data/portfolioData'
-import ProjectCard from './ProjectCard'
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { companies } from "../data/portfolioData";
+import ProjectCard from "./ProjectCard";
 
-// Seconds between automatic slide transitions
-const AUTOPLAY_INTERVAL = 5000
+const AUTOPLAY_INTERVAL = 5000;
 
 function Companies() {
-  const filters = ['All', ...new Set(companies.map((p) => p.category))]
-  const [filter, setFilter] = useState('All')
-  const [index, setIndex] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const timerRef = useRef(null)
+  const filters = ["All", ...new Set(companies.map((p) => p.category))];
+  const [filter, setFilter] = useState("All");
+  const [index, setIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const timerRef = useRef(null);
 
   const filteredCompanies =
-    filter === 'All'
+    filter === "All"
       ? companies
-      : companies.filter((p) => p.category === filter)
+      : companies.filter((p) => p.category === filter);
 
   // Reset the autoplay timer whenever the slide, filter, or play state changes
   useEffect(() => {
-    if (!isPlaying) return
+    if (!isPlaying) return;
 
     timerRef.current = setInterval(() => {
-      setIndex((i) =>
-        i === filteredCompanies.length - 1 ? 0 : i + 1
-      )
-    }, AUTOPLAY_INTERVAL)
+      setIndex((i) => (i === filteredCompanies.length - 1 ? 0 : i + 1));
+    }, AUTOPLAY_INTERVAL);
 
-    return () => clearInterval(timerRef.current)
-  }, [index, filter, isPlaying, filteredCompanies.length])
+    return () => clearInterval(timerRef.current);
+  }, [index, filter, isPlaying, filteredCompanies.length]);
 
   // Reset to the first slide whenever the filter changes
   const handleFilter = (cat) => {
-    setFilter(cat)
-    setIndex(0)
-    setIsPlaying(true)
-  }
+    setFilter(cat);
+    setIndex(0);
+    setIsPlaying(true);
+  };
 
   // Pause autoplay briefly on manual navigation so the timer doesn't fight the user
   const pauseAnd = (action) => {
-    setIsPlaying(false)
-    action()
+    setIsPlaying(false);
+    action();
     // Resume after a short grace period
-    setTimeout(() => setIsPlaying(true), AUTOPLAY_INTERVAL)
-  }
+    setTimeout(() => setIsPlaying(true), AUTOPLAY_INTERVAL);
+  };
 
   const handlePrev = () => {
     pauseAnd(() =>
-      setIndex((i) =>
-        i === 0 ? filteredCompanies.length - 1 : i - 1
-      )
-    )
-  }
+      setIndex((i) => (i === 0 ? filteredCompanies.length - 1 : i - 1)),
+    );
+  };
 
   const handleNext = () => {
     pauseAnd(() =>
-      setIndex((i) =>
-        i === filteredCompanies.length - 1 ? 0 : i + 1
-      )
-    )
-  }
+      setIndex((i) => (i === filteredCompanies.length - 1 ? 0 : i + 1)),
+    );
+  };
 
   const handleDotClick = (i) => {
-    pauseAnd(() => setIndex(i))
-  }
+    pauseAnd(() => setIndex(i));
+  };
 
   const handleDragEnd = (event, info) => {
-    // Swipe left -> next, swipe right -> previous
-    if (info.offset.x < -50) handleNext()
-    else if (info.offset.x > 50) handlePrev()
-  }
+    if (info.offset.x < -50) handleNext();
+    else if (info.offset.x > 50) handlePrev();
+  };
 
   // Start or stop autoplay on hover so users can read without interruptions
-  const handleMouseEnter = () => setIsPlaying(false)
-  const handleMouseLeave = () => setIsPlaying(true)
+  const handleMouseEnter = () => setIsPlaying(false);
+  const handleMouseLeave = () => setIsPlaying(true);
 
-  const currentCompany = filteredCompanies[index]
+  const currentCompany = filteredCompanies[index];
 
   return (
     <section id="companies" className="section">
       <div className="container">
         <h2 className="section-title">Companies</h2>
         <p className="section-subtitle">
-          A selection of companies I've worked with. Click through to see the code or live demo.
+          A selection of companies I've worked with. Click through to see the
+          code or live demo.
         </p>
 
         <div className="project-filters">
           {filters.map((cat) => (
             <button
               key={cat}
-              className={`filter-btn ${filter === cat ? 'active' : ''}`}
+              className={`filter-btn ${filter === cat ? "active" : ""}`}
               onClick={() => handleFilter(cat)}
             >
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -125,7 +118,7 @@ function Companies() {
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.2}
                   onDragEnd={handleDragEnd}
-                  whileTap={{ cursor: 'grabbing' }}
+                  whileTap={{ cursor: "grabbing" }}
                 >
                   <ProjectCard project={currentCompany} />
                 </motion.div>
@@ -144,7 +137,7 @@ function Companies() {
               {filteredCompanies.map((company, i) => (
                 <button
                   key={company.title}
-                  className={`carousel-dot ${i === index ? 'active' : ''}`}
+                  className={`carousel-dot ${i === index ? "active" : ""}`}
                   onClick={() => handleDotClick(i)}
                   aria-label={`Go to slide ${i + 1}`}
                 />
@@ -160,7 +153,7 @@ function Companies() {
         )}
       </div>
     </section>
-  )
+  );
 }
 
-export default Companies
+export default Companies;

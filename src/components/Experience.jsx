@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { experience } from '../data/portfolioData'
+import { motion } from "framer-motion";
+import { experience } from "../data/portfolioData";
 
 function Experience() {
   return (
@@ -29,7 +29,7 @@ function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Experience
+export default Experience;

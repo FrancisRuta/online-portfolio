@@ -11,8 +11,6 @@ function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // For a working form, integrate a backend like EmailJS / Formspree.
-  // This uses a mailto fallback so it works without a server.
   const handleSubmit = (e) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Portfolio message from ${form.name}`);

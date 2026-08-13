@@ -52,7 +52,7 @@ function ProjectCard({ project }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ProjectCard
+export default ProjectCard;
