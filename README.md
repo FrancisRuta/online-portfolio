@@ -2,6 +2,10 @@
 
 A single-page developer portfolio built with **React** + **Vite** and deployed to **GitHub Pages**.
 
+### Note:
+
+This will be a work-in-progress online portfolio. I'm still working on it and will improve the UI/UX as I go along.
+
 ## ✨ Features
 
 - Single-page layout with smooth-scroll navigation
