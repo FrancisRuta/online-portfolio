@@ -19,7 +19,7 @@ function Hero() {
 
           <div className="hero-cta">
             <a href="#companies" className="btn btn-primary">
-              Companies I've worked for
+              Companies I've Worked For
             </a>
             <a href="#contact" className="btn btn-outline">
               Contact Me
