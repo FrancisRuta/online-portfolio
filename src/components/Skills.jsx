@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { skills } from '../data/portfolioData'
+import { motion } from "framer-motion";
+import { skills } from "../data/portfolioData";
 
 function Skills() {
   return (
@@ -33,7 +33,7 @@ function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Skills
+export default Skills;

@@ -22,5 +22,6 @@ dist-ssr
 *.sln
 *.sw?
 *.continue
+.env
 
 PROJECT_PLAN.md
