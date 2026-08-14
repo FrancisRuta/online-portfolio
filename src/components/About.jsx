@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { about, profile } from '../data/portfolioData'
+import { motion } from "framer-motion";
+import { about, profile } from "../data/portfolioData";
 
 function About() {
   return (
@@ -32,7 +32,7 @@ function About() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

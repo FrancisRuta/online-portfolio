@@ -1,26 +1,53 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { contact, profile } from '../data/portfolioData'
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { contact, profile } from "../data/portfolioData";
+import { socialIcons } from "../utils";
+
+const {
+  VITE_EMAILJS_SERVICE_ID,
+  VITE_EMAILJS_TEMPLATE_ID,
+  VITE_EMAILJS_PUBLIC_KEY,
+} = import.meta.env;
+
+const email_status = {
+  SENT: "sent",
+  SENDING: "sending",
+  IDLE: "idle",
+  ERROR: "error",
+};
 
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [emailStatus, setEmailStatus] = useState(email_status.IDLE); // idle, sent, error
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  // For a working form, integrate a backend like EmailJS / Formspree.
-  // This uses a mailto fallback so it works without a server.
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio message from ${form.name}`)
-    const body = encodeURIComponent(
-      `${form.message}\n\n—\n${form.name}\n${form.email}`
-    )
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
-    setSubmitted(true)
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setEmailStatus(email_status.SENDING);
+    setError("");
+
+    try {
+      await emailjs.send(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        form,
+        { publicKey: VITE_EMAILJS_PUBLIC_KEY },
+      );
+
+      setEmailStatus(email_status.SENT);
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setEmailStatus(email_status.ERROR);
+      setError(
+        `Something went wrong. Please try again or email me directly at ${profile.email}`,
+      );
+    }
+  };
 
   return (
     <section id="contact" className="section contact-section">
@@ -32,12 +59,14 @@ function Contact() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">{contact.heading}</h2>
-          <p className="contact-subtitle">{contact.description}</p>
+          {emailStatus === email_status.IDLE && (
+            <p className="contact-subtitle">{contact.description}</p>
+          )}
 
-          {submitted ? (
-            <div className="contact-subtitle" style={{ marginTop: '2rem' }}>
-              ✅ Thanks! Your email client should open — feel free to send it through, or reach
-              out directly at <strong>{profile.email}</strong>.
+          {emailStatus === email_status.SENT && !error ? (
+            <div className="contact-subtitle" style={{ marginTop: "2rem" }}>
+              ✅ Your email has been sent! I will send an email back to you at
+              my earliest convenience. Thanks for reaching out to me!
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -68,10 +97,28 @@ function Contact() {
                   value={form.message}
                   onChange={handleChange}
                   required
+                  disabled={emailStatus === "sending"}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
-                Send Message
+
+              {error && (
+                <p
+                  className="contact-subtitle"
+                  role="alert"
+                  style={{ color: "crimson" }}
+                >
+                  {error}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={emailStatus === email_status.SENDING}
+              >
+                {emailStatus === email_status.SENDING
+                  ? "Sending…"
+                  : "Send Message"}
               </button>
             </form>
           )}
@@ -86,14 +133,14 @@ function Contact() {
                 className="social-link"
                 aria-label={social.platform}
               >
-                {social.platform.charAt(0).toUpperCase()}
+                {socialIcons[social.icon]}
               </a>
             ))}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
