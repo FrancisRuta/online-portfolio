@@ -75,10 +75,16 @@ export const skills = [
 
 export const companies = [
   {
-    title: "HX Works",
-    description:
-      "Many growing businesses—especially in specialized sectors like legal tech—struggle with disconnected software, manual administrative bottlenecks, and rigid off-the-shelf tools that don't fit their operational workflows. HX Works bridges this gap by building custom web applications, seamless third-party integrations (like QuickBooks and Filevine), and tailormade digital toolboxes that unify data and streamline day-to-day operations.",
     name: "HX Works",
+    summary:
+      "Custom web applications and third-party integrations (QuickBooks, Filevine) that unify data for legal-tech firms.",
+    role: "Back-End Developer",
+    period: "Mar 2025 - Jun 2026",
+    outcomes: [
+      "Maintained and improved backend logic and RESTful API integrations (Filevine, QuickBooks) across three SaaS products — Finance Connect, Optimization Toolbox, and Smart Mailroom.",
+      "Owned error monitoring, debugging, and incident response, and introduced automated unit and integration testing with Pytest.",
+      "Leveraged AI-assisted tooling (Claude, Gemini, ChatGPT) to accelerate delivery within an async, cross-functional remote workflow.",
+    ],
     tech: [
       "Python",
       "Flask",
@@ -90,14 +96,19 @@ export const companies = [
       "Trello",
       "AI Coding Assistance",
     ],
-    liveUrl: "https://hxworks.com/projects/legal-tech/",
-    // repoUrl: "",
-    category: "automation",
+    companyWebsite: "https://hxworks.com/projects/legal-tech/",
   },
   {
-    title: "Evren",
-    description:
-      "With the rise of remote work and third-party contractors, organizations face massive data security risks, compliance challenges, and potential breaches on unmanaged employee laptops. Evren solves this by deploying EvrenOS—a secure, lightweight desktop operating system—paired with a centralized web dashboard, allowing IT administrators to enforce strict device policies, prevent data loss, and maintain full compliance without hindering employee productivity.",
+    name: "Evren",
+    summary:
+      "EvrenOS — a secure, lightweight desktop OS paired with a centralized web dashboard for IT administrators.",
+    role: "Full-Stack Developer",
+    period: "Feb 2023 - Nov 2024",
+    outcomes: [
+      "Maintained and improved the EvrenOS API — an enterprise endpoint-security admin dashboard for a Singapore-based company.",
+      "Migrated legacy Flask templates to React.js and refactored core Python services from synchronous to asynchronous execution.",
+      "Built REST endpoints secured with AWS Secrets Manager, monitored application health via Logz.io, and documented architecture with Swagger/OpenAPI.",
+    ],
     tech: [
       "Python",
       "Flask",
@@ -110,14 +121,19 @@ export const companies = [
       "Jira",
       "PostgreSQL",
     ],
-    liveUrl: "https://www.evren.co/",
-    // repoUrl: "",
-    category: "web",
+    companyWebsite: "https://www.evren.co/",
   },
   {
-    title: "IPEdge LLC",
-    description:
-      "Navigating patent strategy and enforcing IP rights involves tracking massive amounts of complex legal data, cross-referencing document pipelines, and managing high-stakes litigation workflows. IP Edge solves this by utilizing custom, specialized web applications that centralize portfolio tracking, streamline case management, and ensure operational efficiency for patent monetization.",
+    name: "IPEdge LLC",
+    summary:
+      "Custom web applications that centralize patent portfolio tracking and streamline case management.",
+    role: "Full-Stack Developer",
+    period: "Sept 2022 - Dec 2022",
+    outcomes: [
+      "Enhanced an internal IP-management application for a US-based patent law firm as part of a remote contract team.",
+      "Developed full-stack features with Python, Flask, React.js, and Bootstrap, and reverse-engineered a legacy codebase with limited documentation.",
+      "Produced updated technical documentation and drove end-to-end testing and bug tracking.",
+    ],
     tech: [
       "Python",
       "Flask",
@@ -127,9 +143,32 @@ export const companies = [
       "Javascript ES6+",
       "Bootstrap",
     ],
-    liveUrl: "https://www.linkedin.com/company/ip-edge-llc/",
-    // repoUrl: "",
-    category: "web",
+    companyWebsite: "https://www.linkedin.com/company/ip-edge-llc/",
+  },
+  {
+    name: "Ingenuity",
+    summary:
+      "End-to-end software delivery — UI/UX design, full-stack development, and cloud infrastructure.",
+    role: "Back-End & Front-End Developer",
+    period: "Mar 2019 - Sept 2022",
+    outcomes: [
+      "Worked as a full-stack developer across multiple client projects for over three years, growing from a junior developer to Full-Stack.",
+      "Focused on Python, deepening my knowledge of Django and Flask for backend development while building modern, responsive interfaces with ReactJS, JavaScript, and Bootstrap.",
+      "Expanded into deployment tooling and workflows — including Docker — to containerize, ship, and maintain production applications.",
+    ],
+    tech: [
+      "Python",
+      "Django",
+      "Flask",
+      "ReactJS",
+      "Javascript",
+      "Bootstrap",
+      "Docker",
+      "Bitbucket",
+      "Jira",
+      "Deployment",
+    ],
+    companyWebsite: "https://www.ingenuity.ph/",
   },
 ];
 
@@ -139,40 +178,30 @@ export const experience = [
     title: "Back-End Developer",
     org: "HX Works",
     period: "Mar 2025 - Jun 2026",
-    description:
-      "Maintained and improved backend logic and RESTful API integrations (Filevine, QuickBooks) across three SaaS applications — Finance Connect, Optimization Toolbox, and Smart Mailroom — for Vineskills, a legal tech consulting firm. Primary developer for error monitoring, debugging, and incident response. Introduced automated unit and integration testing with Pytest, and leverage AI-assisted coding tools (Claude, Gemini, ChatGPT) to accelerate delivery within an async, cross-functional remote workflow.",
   },
   {
     type: "work",
     title: "Full-Stack Developer",
     org: "Evren",
     period: "Feb 2023 - Nov 2024",
-    description:
-      "Maintained and improved EvrenOS API, an enterprise endpoint security admin dashboard, for a Singapore-based company. Migrated legacy Flask templates to React.js, modernizing the platform's UI and performance. Refactored core Python services from synchronous to asynchronous execution. Built new REST API endpoints secured with AWS Secrets Manager, monitored application health via Logz.io to drive root-cause analysis, and documented system architecture using Swagger/OpenAPI to align cross-team development.",
   },
   {
     type: "work",
     title: "Full-Stack Developer",
     org: "IPEdge LLC",
     period: "Sept 2022 - Dec 2022",
-    description:
-      "Our team took over and enhanced an internal intellectual property management application for a US-based patent law firm, as part of a remote contract team. Developed full-stack features using Python, Flask, React.js, and Bootstrap. Reverse-engineered a legacy codebase with limited documentation and produced updated technical docs. Drove end-to-end testing and bug tracking.",
   },
   {
     type: "work",
     title: "Back-End & Front-End Developer",
     org: "Ingenuity",
     period: "Mar 2019 - Sept 2022",
-    description:
-      "Delivered frontend and backend work across multiple client projects as a software developer. Built Node.js/Express.js APIs and ERDs for an Australian migration platform (Navibord). Engineered RBAC and responsive UIs in Django for an internal auditing system (NCCC). Led a Python 2 to 3 migration for a support ticketing system (Serverplus). Grew from support developer to Full-Stack Lead on a Canadian business directory platform (Connect Trades). Contributed in building REST APIs for a COVID-19 contact tracing platform (Safe Davao QR). Architected database schemas and APIs for a mobile recipe app (Food Medley).",
   },
   {
     type: "education",
     title: "B.S. in Information Technology",
     org: "Ateneo de Davao University",
-    period: "2014 – 2018",
-    description:
-      "Brief description of your degree and any notable focus areas.",
+    period: "2014 - 2018",
   },
 ];
 

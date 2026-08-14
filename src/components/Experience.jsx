@@ -23,7 +23,7 @@ function Experience() {
               <span className="timeline-period">{item.period}</span>
               <h3>{item.title}</h3>
               <div className="timeline-org">{item.org}</div>
-              <p>{item.description}</p>
+              {item.description && <p>{item.description}</p>}
             </motion.div>
           ))}
         </div>
