@@ -65,8 +65,8 @@ function Contact() {
 
           {emailStatus === email_status.SENT && !error ? (
             <div className="contact-subtitle" style={{ marginTop: "2rem" }}>
-              ✅ Your email has been sent! I will send an email back to you at
-              my earliest convenience. Thanks for reaching out to me!
+              ✅ Your email has been sent! Thanks for reaching out. I'll get
+              back to you as soon as possible.
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
