@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import TechMarquee from "./components/TechMarquee";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Companies from "./components/Companies";
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <TechMarquee />
         <About />
         <Skills />
         <Companies />

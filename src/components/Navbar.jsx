@@ -13,6 +13,7 @@ const navItems = [
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,7 @@ function Navbar() {
         }
       });
       setActive(current);
+      setScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -46,7 +48,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container navbar-inner">
         <a
           href="#home"
@@ -56,13 +58,36 @@ function Navbar() {
             scrollToTop();
           }}
         >
-          FR
-          <span
-            style={{
-              color: "var(--accent-cyan)",
-              WebkitTextFillColor: "var(--accent-cyan)",
-            }}
-          ></span>
+          <svg
+            className="logo-mark"
+            viewBox="0 0 512 512"
+            width="58"
+            height="58"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="logo-badge" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1e293b" />
+                <stop offset="1" stop-color="#141c2f" />
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="244" fill="url(#logo-badge)" />
+            <circle
+              className="logo-ring"
+              cx="256"
+              cy="256"
+              r="244"
+              fill="none"
+              stroke="var(--accent-cyan)"
+              stroke-width="10"
+            />
+            <g fill="#e2e8f0">
+              <rect x="176" y="150" width="52" height="212" rx="26" />
+              <rect x="176" y="150" width="150" height="52" rx="26" />
+              <rect x="176" y="250" width="120" height="52" rx="26" />
+            </g>
+            <circle cx="326" cy="276" r="18" fill="var(--accent-cyan)" />
+          </svg>
         </a>
 
         <button

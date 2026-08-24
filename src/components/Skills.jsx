@@ -18,7 +18,7 @@ function Skills() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 1, delay: index * 0.15 }}
             >
               <h3>{skillGroup.category}</h3>
               <div className="skill-items">
