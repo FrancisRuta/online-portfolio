@@ -9,7 +9,7 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.3 }}
         >
           <h1 className="hero-title">
             Hi, I'm <span>{profile.name}</span>
@@ -46,7 +46,7 @@ function Hero() {
           className="hero-photo"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1.3, delay: 0.2 }}
         >
           <img src={profile.photo} alt={profile.name} />
         </motion.div>

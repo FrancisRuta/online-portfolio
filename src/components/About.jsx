@@ -9,7 +9,7 @@ function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1.1 }}
         >
           <h2 className="section-title">About Me</h2>
           <div className="about-text">

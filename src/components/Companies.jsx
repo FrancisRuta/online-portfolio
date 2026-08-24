@@ -19,7 +19,7 @@ function Companies() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: (i % 2) * 0.1 }}
+                transition={{ duration: 0.9, delay: (i % 2) * 0.1 }}
               >
                 <CompanyCard company={company} index={i} />
               </motion.div>
