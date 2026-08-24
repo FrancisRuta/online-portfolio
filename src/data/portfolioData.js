@@ -73,6 +73,31 @@ export const skills = [
   },
 ];
 
+const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
+
+export const techStack = [
+  { name: "JavaScript", icon: `${DEVICON}/javascript/javascript-original.svg` },
+  { name: "TypeScript", icon: `${DEVICON}/typescript/typescript-original.svg` },
+  { name: "React", icon: `${DEVICON}/react/react-original.svg` },
+  { name: "Next.js", icon: `${DEVICON}/nextjs/nextjs-original.svg` },
+  { name: "Tailwind CSS", icon: `${DEVICON}/tailwindcss/tailwindcss-original.svg` },
+  { name: "Bootstrap", icon: `${DEVICON}/bootstrap/bootstrap-original.svg` },
+  { name: "Python", icon: `${DEVICON}/python/python-original.svg` },
+  { name: "Flask", icon: `${DEVICON}/flask/flask-original.svg` },
+  { name: "Django", icon: `${DEVICON}/django/django-plain.svg` },
+  { name: "FastAPI", icon: `${DEVICON}/fastapi/fastapi-original.svg` },
+  { name: "Node.js", icon: `${DEVICON}/nodejs/nodejs-original.svg` },
+  { name: "Express", icon: `${DEVICON}/express/express-original.svg` },
+  { name: "PostgreSQL", icon: `${DEVICON}/postgresql/postgresql-original.svg` },
+  { name: "MySQL", icon: `${DEVICON}/mysql/mysql-original.svg` },
+  { name: "PHP", icon: `${DEVICON}/php/php-original.svg` },
+  { name: "Git", icon: `${DEVICON}/git/git-original.svg` },
+  { name: "GitHub", icon: `${DEVICON}/github/github-original.svg` },
+  { name: "GitLab", icon: `${DEVICON}/gitlab/gitlab-original.svg` },
+  { name: "Docker", icon: `${DEVICON}/docker/docker-original.svg` },
+  { name: "AWS", icon: `${DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg` },
+];
+
 export const companies = [
   {
     name: "HX Works",
@@ -178,30 +203,60 @@ export const experience = [
     title: "Back-End Developer",
     org: "HX Works",
     period: "Mar 2025 - Jun 2026",
+    description:
+      "Maintained backend logic and RESTful API integrations (Filevine, QuickBooks) across three legal-tech SaaS products, and introduced automated unit and integration testing with Pytest.",
+    tech: [
+      "Python",
+      "Flask",
+      "PostgreSQL",
+      "Pytest",
+      "GitLab",
+      "QuickBooks API",
+      "Filevine API",
+    ],
   },
   {
     type: "work",
     title: "Full-Stack Developer",
     org: "Evren",
     period: "Feb 2023 - Nov 2024",
+    description:
+      "Helped build and improve EvrenOS — a secure endpoint-security admin dashboard — migrating legacy Flask templates to React and refactoring core Python services to async.",
+    tech: [
+      "Python",
+      "Flask",
+      "React",
+      "AWS",
+      "Docker",
+      "GitHub Actions",
+      "PostgreSQL",
+    ],
   },
   {
     type: "work",
     title: "Full-Stack Developer",
     org: "IPEdge LLC",
     period: "Sept 2022 - Dec 2022",
+    description:
+      "Developed full-stack features for a US patent law firm's IP-management app using Python, Flask, and React, and reverse-engineered a legacy codebase with limited documentation.",
+    tech: ["Python", "Flask", "React", "JavaScript", "Bootstrap"],
   },
   {
     type: "work",
     title: "Back-End & Front-End Developer",
     org: "Ingenuity",
     period: "Mar 2019 - Sept 2022",
+    description:
+      "Delivered end-to-end client projects for over three years, growing from junior to full-stack while deepening Python/Django and building modern React interfaces.",
+    tech: ["Python", "Django", "Flask", "React", "Bootstrap", "Docker"],
   },
   {
     type: "education",
     title: "B.S. in Information Technology",
     org: "Ateneo de Davao University",
     period: "2014 - 2018",
+    description:
+      "Graduated with a Bachelor of Science in Information Technology, focusing on software development and information systems.",
   },
 ];
 
