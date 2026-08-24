@@ -727,6 +727,10 @@ img {
 
 /* ------------ Responsive ------------ */
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 60px;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
