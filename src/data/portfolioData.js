@@ -80,7 +80,10 @@ export const techStack = [
   { name: "TypeScript", icon: `${DEVICON}/typescript/typescript-original.svg` },
   { name: "React", icon: `${DEVICON}/react/react-original.svg` },
   { name: "Next.js", icon: `${DEVICON}/nextjs/nextjs-original.svg` },
-  { name: "Tailwind CSS", icon: `${DEVICON}/tailwindcss/tailwindcss-original.svg` },
+  {
+    name: "Tailwind CSS",
+    icon: `${DEVICON}/tailwindcss/tailwindcss-original.svg`,
+  },
   { name: "Bootstrap", icon: `${DEVICON}/bootstrap/bootstrap-original.svg` },
   { name: "Python", icon: `${DEVICON}/python/python-original.svg` },
   { name: "Flask", icon: `${DEVICON}/flask/flask-original.svg` },
@@ -95,7 +98,10 @@ export const techStack = [
   { name: "GitHub", icon: `${DEVICON}/github/github-original.svg` },
   { name: "GitLab", icon: `${DEVICON}/gitlab/gitlab-original.svg` },
   { name: "Docker", icon: `${DEVICON}/docker/docker-original.svg` },
-  { name: "AWS", icon: `${DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg` },
+  {
+    name: "AWS",
+    icon: `${DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg`,
+  },
 ];
 
 export const companies = [
@@ -256,7 +262,7 @@ export const experience = [
     org: "Ateneo de Davao University",
     period: "2014 - 2018",
     description:
-      "Graduated with a Bachelor of Science in Information Technology, focusing on software development and information systems.",
+      "Graduated with a degree in Bachelor of Science in Information Technology, focusing on software development and information systems.",
   },
 ];
 
