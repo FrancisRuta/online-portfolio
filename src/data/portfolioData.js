@@ -262,7 +262,7 @@ export const experience = [
     org: "Ateneo de Davao University",
     period: "2014 - 2018",
     description:
-      "Graduated with a degree in Bachelor of Science in Information Technology, focusing on software development and information systems.",
+      "Graduated with a Bachelor of Science in Information Technology, focusing on software development and information systems.",
   },
 ];
 
